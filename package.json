@@ -1,0 +1,19 @@
+{
+  "name": "kitchen_display",
+  "version": "1.0.0",
+  "description": "\"The system outputs orders from clients on a kitchen touch screnn for easier serving of customers\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sammy2005/kitchen_display.git"
+  },
+  "author": "Sammy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sammy2005/kitchen_display/issues"
+  },
+  "homepage": "https://github.com/Sammy2005/kitchen_display#readme"
+}
