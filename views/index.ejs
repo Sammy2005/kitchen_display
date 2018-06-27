@@ -4,13 +4,106 @@
 	<title>Kitchen Display</title>
 	<% include partials/stylesheets.ejs %>
 </head>
-<body>
-	<main>
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<h1 class="w3-green w3-padding">You rock</h1>
-			</div>			
+<body class="content">
+	<div class="display">
+		<div class="w3-padding w3-card w3-margin">
+		<h1 class="w3-center w3-padding"><i class="fas fa-cube"></i> Vision Tech Kitechen display</h1>
 		</div>
-	</main>
+		<div class="row">
+			<div class="col-md-3" style="margin-right: 0px;">
+				<div class="in_order">
+					<h4 class="w3-center">INCOMING ORDERS</h4>
+					<table class="w3-table w3-bordered w3-border">
+						<tr class="w3-teal">
+						<th>ORDER NO</th>
+						<th>ITEM</th>
+						<th>TIME</th>
+						</tr>
+						<% for(var i = 0; i < data.length; i++){ %>
+						<tr class="">
+						<td><%= data[i].ORDERID %></td><td>
+							<% 
+							item = data[i].DETAILS.split(",");
+							for(var j = 0; j < item.length; j++){ %>
+							<span><%= item[j].toLowerCase() %></span><br>
+								<% } %>
+							</td>
+							<td><% var d = new Date(data[i].ORDERTIME) %><%= d.toTimeString().split(" ")[0]%></td>
+						</tr>
+						<%  } %>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="current_order w3-card">
+					<h4 class="w3-center w3-padding" style="color: #9FEAF9; border:1px solid #9FEAF9;">CURRRENT ACTIVE ORDER</h4>
+					<div class="w3-margin-bottom w3-padding">
+					<ul class="list-group">
+
+						<li class="w3-teal w3-padding w3-margin"><h1><span><i class="fas fa-receipt"></i> ORDER NO: </span> <%= data[0].ORDERID %></h1> </li>
+						<li class="w3-teal w3-padding w3-margin"><h1><span><i class="fas fa-utensils"></i> FOOD: </span><ul class="" style="margin-left: 100px;"> <% 
+							items = data[0].DETAILS.split(",");
+							for(var j = 0; j < items.length; j++){ %>
+							<li>=><%= items[j] %></li>
+								<% } %>
+							</ul></h1></li>
+						<li class="w3-teal w3-padding w3-margin"><span><i class="fas fa-clock"></i> ORDER TIME: </span> <% var d = new Date(data[0].ORDERTIME) %><%= d.toTimeString().split(" ")[0]%></li>
+						<li class="w3-teal w3-padding w3-margin"><span><i class="fas fa-clock"></i> LATE BY: </span> <% var nd = new Date() %><% var date = new Date(nd - d) %><%= date.toTimeString().split(" ")[0]%></li>
+						<li class="w3-teal w3-padding w3-margin"><span><i class="fas fa-list"></i> ORDERS REMAINING: </span> <%= data.length-1 %> </li>
+
+					</ul>
+						<div class="w3-margin-bottom w3-padding">
+						<div class="w3-half w3-margin-bottom">
+						<button class="w3-btn w3-red w3-padding" onclick="clearOrder('<%= data[0] %>')"><i class="fa fa-trash"></i> CLEAR ORDER</button>
+						</div>
+					<div class="w3-half w3-margin-bottom">
+						<button class="w3-btn w3-green w3-padding"><i class="fa fa-arrow-left"></i> GET PREVIOUS</button>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-3">
+					<div class="w3-white w3-card">
+						<h1 class="w3-teal w3-padding"><span><i class="fas fa-utensils"></i> FOOD: </span></h1>
+					<div class="w3-padding w3-margin">
+						<ul class=""> <% 
+							items = data[0].DETAILS.split(",");
+							for(var j = 0; j < items.length; j++){ %>
+							<li><h2>=><%= items[j] %></h2></li>
+								<% } %>
+							</ul>
+						</div>
+					</div>
+				</div>
+		</div>
+			<div class="">
+				<div class="in_order">
+					<h4 class="w3-center">SERVED ORDERS</h4>
+					<table class="w3-table w3-bordered w3-border">
+						<tr class="w3-teal">
+						<th>ORDER NO</th>
+						<th>ITEM</th>
+						<th>TIME</th>
+						</tr>
+						<% for(var i = 0; i < data.length; i++){ %>
+						<tr class="">
+						<td><%= data[i].ORDERID %></td><td>
+							<% 
+							item = data[i].DETAILS.split(",");
+							for(var j = 0; j < item.length; j++){ %>
+							<span><%= item[j].toLowerCase() %></span><br>
+								<% } %>
+							</td>
+							<td><% var d = new Date(data[i].ORDERTIME) %><%= d.toTimeString().split(" ")[0]%></td>
+						</tr>
+						<%  } %>
+					</table>
+				</div>
+			</div>			
+		
+	</div>
+	<% include partials/javascripts.ejs %>
+	<script src="../assets/js/index.js"></script>
 </body>
 </html>
