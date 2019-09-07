@@ -12,7 +12,7 @@ dbController(app, dataRes);
 connection = mysql.createConnection({
 	host: '127.0.0.1',
 	user: 'root',
-	password: '',
+	password: 'root',
 	database: 'inventorydb'
 });
 
@@ -26,7 +26,7 @@ connection.connect(function(error){
 
 let data = [];
 app.get('/', function(req, res){
-	
+
 	connection.query("SELECT * FROM orders ORDER BY ORDERTIME DESC", function(error, rows, fields){
 		if(error) throw error;
 
@@ -38,7 +38,7 @@ app.get('/', function(req, res){
 	});
 
 	});
-	
+
 });
 
 app.listen(3000, function(){

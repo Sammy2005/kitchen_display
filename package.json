@@ -4,7 +4,8 @@
   "description": "\"The system outputs orders from clients on a kitchen touch screnn for easier serving of customers\"",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Sammy2005/kitchen_display/issues"
   },
-  "homepage": "https://github.com/Sammy2005/kitchen_display#readme"
+  "homepage": "https://github.com/Sammy2005/kitchen_display#readme",
+  "devDependencies": {
+    "electron": "^6.0.7"
+  },
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.2"
+  }
 }

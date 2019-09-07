@@ -9,7 +9,7 @@ var urlEncodedParser = bodyParser.urlencoded({extended: false});
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '',
+	password: 'root',
 	database: 'inventorydb'
 });
 
@@ -25,7 +25,7 @@ module.exports = function(app, dataRes){
 	app.post('/clear', urlEncodedParser, function(req, res){
 		let clearData = req.body;
 		var sql = 'INSERT INTO order_tmp (ORDERID, QTY, DETAILS, ORDERTIME, UPDATETIME) VALUES('+mysql.escape(clearData.ORDERID)+','+clearData.QTY+','+mysql.escape(clearData.DETAILS)+','+mysql.escape(clearData.ORDERTIME)+','+mysql.escape(Date())+')';
-		
+
 		connection.query(sql, function(err, result){
 			if(err) throw err;
 
@@ -63,7 +63,6 @@ module.exports = function(app, dataRes){
 	});
 
 	});
-	
+
 });
 }
-
