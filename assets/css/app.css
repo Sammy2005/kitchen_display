@@ -1,0 +1,36 @@
+.content{
+	background-color: #2B2E3B;
+	/*background-image: url('/assets/img/blueback.jpg');
+	background-size: 180%;
+	background-position: center;
+	background-repeat: no-repeat;
+	*/
+}
+.display{
+	background-color: rgba(250, 250, 250, 0.1) !important;
+	width: 100%;
+	height: 100%;
+	color: #9FEAF9 !important;
+}
+.in_orders{
+	padding-top: 100px;
+}
+ul{
+		list-style-type: none;
+		font-size: 18x;
+}
+ul, li{
+	border-color: #9FEAF9 !important;
+}
+.current_order{
+	border: 1px solid;
+	border-color: #9FEAF9 !important;
+}
+.current_order, p{
+	font-size: 24px;
+	color: red;
+}
+.current_order .item{
+	color: #9FEAF9;
+	font-style: italic;
+}
